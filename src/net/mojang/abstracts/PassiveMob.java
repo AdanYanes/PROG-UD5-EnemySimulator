@@ -1,16 +1,11 @@
 package net.mojang.abstracts;
 
-import net.mojang.interfaces.Combat;
+import net.mojang.interfaces.Damage;
 
-public abstract class HostileMob extends Mob implements Combat {
+public abstract class PassiveMob extends Mob implements Damage {
 
-    public HostileMob(int health, int strength) {
+    public PassiveMob(int health, int strength) {
         super(health, strength);
-    }
-    
-    @Override
-    public int attack(){
-        return strength;
     }
 
     @Override
