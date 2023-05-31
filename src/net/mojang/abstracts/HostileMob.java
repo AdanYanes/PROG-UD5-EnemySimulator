@@ -21,6 +21,6 @@ public abstract class HostileMob extends Mob implements Combat {
             this.health = 0;
         }
 
-        System.out.println("Ha recibido " + attack + " y tiene " + this.health + " puntos de vida restante");
+        System.out.println("ha recibido " + attack + " puntos de daño y tiene " + this.health + " puntos de vida restante");
     }
 }
