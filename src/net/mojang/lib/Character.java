@@ -14,6 +14,10 @@ public class Character implements Combat{
         this.strength = strength;
     }
 
+    public int getHealth(){
+        return this.health;
+    }
+
     @Override
     public int attack(){
         return this.strength;
@@ -31,6 +35,6 @@ public class Character implements Combat{
             this.health = 0;
         }
 
-        System.out.println("Ha recibido " + totalDamage + " y tiene " + this.health + " puntos de vida restante");
+        System.out.println("has recibido " + totalDamage + " puntos de daño y tienes " + this.health + " puntos de vida restante");
     }
 }

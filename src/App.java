@@ -1,15 +1,20 @@
+import java.util.Random;
 import java.util.Scanner;
 import net.mojang.lib.Character;
+import net.mojang.mobs.hostile.Zombie;
 
 public class App {
     public static void main(String[] args) {
         
         Scanner scanner = new Scanner(System.in);
 
+        Random random = new Random();
+
         String option;
 
         int strength;
         int defense;
+        int counter = 0;
 
         System.out.println("------------------------------");
         System.out.println("Bienvenido, jugador");
@@ -78,7 +83,24 @@ public class App {
         }
 
         Character character = new Character(defense, strength);
-        
+        Zombie zombie = new Zombie(10, 4);
+
+        while(zombie.getHealth() > 0 && character.getHealth() > 0){
+            System.out.print("Has atacado y el zombie ");
+            zombie.takeDamage(character.attack());
+
+            if(random.nextInt(10) + 1 > 5){
+                zombie.move();
+            }else{
+                System.out.print("El zombie te ha atacado y ");
+                character.takeDamage(zombie.attack());
+            }
+            counter++;
+        }
+        String msg = "El combate ha finalizado despues de " + counter + " turnos y el vencedor ha sido ";
+        msg += (character.getHealth() > 0)? "el jugador" : "el zombie";
+
+        System.out.println(msg);
     }
 }
 
